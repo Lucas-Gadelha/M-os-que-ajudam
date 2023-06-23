@@ -15,22 +15,24 @@ const Login = () => {
   const [senha, setSenha] = useState('');
   const [erroAutenticacao, setErroAutenticacao] = useState(false);
 
-//   useEffect(() => {
-//     axios
-//       .get('http://localhost:3001/usuario/listar')
-//       .then((response) => {
-//         setUsuarios(response.data);
-//       })
-//       .catch((error) => console.log(error));
-//   }, []);
 
-useEffect(() => {
-    const usuariosCadastrados = [
-      { login: 'instituição', senha: '1234' },
-      { login: 'voluntario', senha: '0000' },
-    ];
-    setUsuarios(usuariosCadastrados);
+  //PRECISA DAR O NPM START NO CRUD
+  useEffect(() => {
+    axios
+      .get('http://localhost:3001/usuario/listar')
+      .then((response) => {
+        setUsuarios(response.data);
+      })
+      .catch((error) => console.log(error));
   }, []);
+
+// useEffect(() => {
+//     const usuariosCadastrados = [
+//       { login: 'instituição', senha: '1234' },
+//       { login: 'voluntario', senha: '0000' },
+//     ];
+//     setUsuarios(usuariosCadastrados);
+//   }, []);
 
   const autenticar = (event) => {
     event.preventDefault();
